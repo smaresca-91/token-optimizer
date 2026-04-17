@@ -1,0 +1,36 @@
+{
+  "thresholds": {
+    "warn": 0.60,
+    "compact": 0.75,
+    "critical": 0.90
+  },
+  "contextWindow": {
+    "claude-code": 200000,
+    "codex": 200000
+  },
+  "compaction": {
+    "mode": "hybrid",
+    "strategies": {
+      "trim": { "enabled": true, "keepRecent": 20 },
+      "summarize": { "enabled": true, "model": "claude-haiku-4-5" },
+      "manual": { "enabled": true }
+    }
+  },
+  "caveman": {
+    "enabled": true,
+    "mode": "always",
+    "activateAt": 0.0,
+    "stripFillers": true,
+    "maxSentenceWords": 12,
+    "targetBoth": true,
+    "preserveCodeBlocks": true
+  },
+  "reporting": {
+    "showAfterEveryTurn": true,
+    "showCost": true,
+    "showPlanLimits": true,
+    "planLimitsCacheSeconds": 60,
+    "persistLog": true,
+    "logPath": "~/.token-optimizer/usage.jsonl"
+  }
+}
