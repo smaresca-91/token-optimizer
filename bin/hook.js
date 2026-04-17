@@ -88,6 +88,7 @@ async function readStdin() {
       if (critical && pressure < config.thresholds.critical) {
         const out = {
           hookSpecificOutput: {
+            hookEventName: 'Stop',
             additionalContext: `[token-optimizer] Plan limit >=90%. Apply Caveman mode: terse responses, minimal tool calls.`
           }
         };
@@ -124,6 +125,7 @@ async function readStdin() {
   if (modelInstructions.length > 0) {
     const out = {
       hookSpecificOutput: {
+        hookEventName: 'Stop',
         additionalContext: modelInstructions.join('\n')
       },
       suppressOutput: false
